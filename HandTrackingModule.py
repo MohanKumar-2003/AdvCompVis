@@ -35,7 +35,7 @@ class handDetector():
             # print(id,lm)
             h,w,c=img.shape
             cx,cy=int(lm.x*w),int(lm.y*h)
-            print(id,cx,cy)
+            # print(id,cx,cy)
             lmsList.append([id,cx,cy])
             if draw:
                cv2.circle(img,(cx,cy),7,(155,8,255),cv2.FILLED)
@@ -48,7 +48,7 @@ def main():
     while True:
         success, img = cap.read()
         img = detector.findHands(img)
-        lmsList=detector.findPosition(img)
+        lmsList=detector.findPosition(img,draw=False)
         if len(lmsList)!=0:
             print(lmsList[4])
         c_time = time.time()
